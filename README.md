@@ -8,6 +8,9 @@ $ bundle exec  rails c
 > User.first.books
 > User.create(name: 'no-book-kato')
 > User.last.books
+  User Load (0.2ms)  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?  [["id", 2], ["LIMIT", 1]]
+  Book Load (0.1ms)  SELECT "books".* FROM "books" INNER JOIN "book_shelves" ON "books"."id" = "book_shelves"."book_id" WHERE "book_shelves"."user_id" = ? /* loading for pp */ LIMIT ?  [["user_id", 2], ["LIMIT", 11]]
+=> []
 ```
 
 # README
